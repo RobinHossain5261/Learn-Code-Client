@@ -1,11 +1,25 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
 
-    const { logIn } = useContext(AuthContext);
+    const { logIn, googleLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+
+    const handaleGoogleSignIn = () => {
+        googleLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+    }
+
+
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handaleSubmit = event => {
         event.preventDefault();
@@ -19,6 +33,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                navigate('/');
             })
             .catch(error => {
                 console.error(error);
@@ -55,7 +70,7 @@ const Login = () => {
                             <p className='text-red-400	'>{error}</p>
                             <div className="form-control mt-6">
                                 <button className="btn btn-info">Login</button>
-                                <button className="btn btn-success mt-2">Login With Google</button>
+                                <button onClick={handaleGoogleSignIn} className="btn btn-success mt-2">Login With Google</button>
                                 <button className="btn btn-dark mt-2">Login With Github</button>
                             </div>
                         </div>

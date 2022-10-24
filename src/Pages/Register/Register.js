@@ -11,7 +11,7 @@ const Register = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const photoURL = form.photoURL.value;
+        const photoURL = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photoURL, email, password)
@@ -47,9 +47,9 @@ const Register = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Photo URL</span>
+                                    <span className="label-text">PhotoURL</span>
                                 </label>
-                                <input type="text" name='photoURL' placeholder="photo URL" className="input input-bordered" />
+                                <input type="text" name='photo' placeholder="photo URL" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
