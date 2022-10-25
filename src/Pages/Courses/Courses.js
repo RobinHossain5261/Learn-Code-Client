@@ -1,23 +1,23 @@
 import React from 'react';
 import CourseLeftSide from '../CourseLeftSide/CourseLeftSide';
+import CourseRightSide from '../CourseRightSide/CourseRightSide';
 
 const Courses = () => {
 
     return (
-        <div className='min-h-screen lg:px-16'>
+        <div className='my-16 lg:px-16'>
+            <div className="flex">
 
-            <h1 className='text-3xl text-info my-3 text-center'>Our Courses</h1>
-            <div className="flex ">
-
-                <div className="flex w-80 ">
+                <div className="flex w-80">
                     <CourseLeftSide></CourseLeftSide>
                 </div>
 
-                <div className="flex-auto bg-green-400 ">
-                    03
+                <div >
+                    <h1 className='text-3xl text-info font-semibold mb-6 text-center  '>Our Courses</h1>
+                    <CourseRightSide></CourseRightSide>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
