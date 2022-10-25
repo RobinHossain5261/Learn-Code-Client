@@ -31,8 +31,18 @@ const Header = () => {
                             <li><Link to='/contact'>Contact</Link></li>
 
                             <div className='lg:hidden'>
-                                <Link to='/login' className="btn btn-outline btn-info mr-2">Login</Link>
-                                <Link to='/register' className="btn btn-outline btn-info">Register</Link>
+                                {
+                                    user?.uid ?
+                                        <>
+                                            <Link to='/profile'><img className='w-12 h-12 rounded-full	 mr-2' src={user?.photoURL ? user?.photoURL : <UserIcon />} alt="" /></Link>
+                                            <Link onClick={handleLogOut} className="btn btn-outline btn-info mr-2">Log Out</Link>
+                                        </>
+                                        :
+                                        <>
+                                            <Link to='/login' className="btn btn-outline btn-info mr-2">Login</Link>
+                                            <Link to='/register' className="btn btn-outline btn-info">Register</Link>
+                                        </>
+                                }
                             </div>
                         </ul>
                     </div>

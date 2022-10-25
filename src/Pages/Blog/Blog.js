@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className='min-h-screen'>
+        <div>
             <h2 className='text-3xl my-6 text-info text-center'>Some question and answer.</h2>
             <div className='px-32 pb-6'>
                 <h3 className='text-xl '><span className='font-bold'>Question-1: </span> what is cors?</h3>
