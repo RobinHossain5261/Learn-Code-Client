@@ -1,15 +1,28 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
 
-    const { logIn, googleLogin } = useContext(AuthContext);
+    const location = useLocation();
+    const from = location.state?.from.pathname || ('/');
+
+    const { logIn, googleLogin, githubLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handaleGoogleSignIn = () => {
         googleLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+    }
+
+    const handaleGithubSignIn = () => {
+        githubLogin(githubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user)
@@ -33,7 +46,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -71,7 +84,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-info">Login</button>
                                 <button onClick={handaleGoogleSignIn} className="btn btn-success mt-2">Login With Google</button>
-                                <button className="btn btn-dark mt-2">Login With Github</button>
+                                <button onClick={handaleGithubSignIn} className="btn btn-dark mt-2">Login With Github</button>
                             </div>
                         </div>
                     </form>

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import logo from '../../../images/learn-logo.jpg';
+import { UserIcon } from '@heroicons/react/24/solid';
 
 const Header = () => {
 
@@ -16,7 +17,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className="navbar bg-gray-100 lg:px-24" >
+            <div className="navbar bg-gray-100 lg:px-16" >
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,7 +37,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className='flex items-center	'>
-                        <img className='w-16 h-16 rounded-xl' src={logo} alt="" />
+                        <img className='w-16 h-16 rounded-full' src={logo} alt="" />
                         <Link className="btn btn-ghost normal-case text-3xl ">Learn <span className='text-info'>-Code</span></Link>
                     </div>
                 </div>
@@ -50,11 +51,17 @@ const Header = () => {
 
                     </ul>
                 </div>
+
                 <div className="navbar-end lg:flex hidden">
+                    <div className="form-control">
+                        <label className="label cursor-pointer">
+                            <input type="checkbox" className="toggle toggle-info" checked />
+                        </label>
+                    </div>
                     {
                         user?.uid ?
                             <>
-                                <Link to='/profile'><img className='w-12 h-12 mr-2' src={user?.photoURL} alt="" /></Link>
+                                <Link to='/profile'><img className='w-12 h-12 rounded-full	 mr-2' src={user?.photoURL ? user?.photoURL : <UserIcon />} alt="" /></Link>
                                 <Link onClick={handleLogOut} className="btn btn-outline btn-info mr-2">Log Out</Link>
                             </>
                             :
@@ -64,9 +71,8 @@ const Header = () => {
                             </>
                     }
 
-
-
                 </div>
+
             </div>
         </div>
     );
