@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CourseRightSide from '../CourseRightSide/CourseRightSide';
 
 const Home = () => {
     return (
-        <div className='dark:bg-slate-800'>
+        <div >
             <div className="hero min-h-screen" style={{ backgroundImage: `url("https://img.freepik.com/free-photo/brainstorm-meeting_1098-15871.jpg?w=1380&t=st=1666638081~exp=1666638681~hmac=b6fc66ea179fa08dd03390f2fe8755e2822899a241b615b1883a37b926b8bf0f")` }}>
                 <div className="hero-overlay bg-opacity-40"></div>
                 <div className="hero-content text-center text-neutral-content">
@@ -13,6 +14,11 @@ const Home = () => {
                         <Link to='/courses' className="btn btn-info">Get Started</Link>
                     </div>
                 </div>
+            </div>
+            <div className='my-16 px-32 mx-auto'>
+                <h1 className='text-3xl text-info font-semibold mb-10 text-center'>Our Courses</h1>
+
+                <CourseRightSide></CourseRightSide>
             </div>
         </div>
     );

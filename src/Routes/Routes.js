@@ -21,12 +21,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <PrivetRoutes><Courses></Courses></PrivetRoutes>
+                element: <Courses></Courses>
 
             },
             {
                 path: '/courses/:id',
-                element: <CourseDetails></CourseDetails>,
+                element: <PrivetRoutes><CourseDetails></CourseDetails></PrivetRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
             },
             {
