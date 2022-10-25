@@ -65,7 +65,7 @@ const Header = () => {
                 <div className="navbar-end lg:flex hidden">
                     <div className="form-control">
                         <label className="label cursor-pointer">
-                            <input type="checkbox" className="toggle toggle-info" checked />
+                            <input type="checkbox" className="toggle toggle-info" />
                         </label>
                     </div>
                     {
