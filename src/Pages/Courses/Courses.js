@@ -5,8 +5,8 @@ import CourseRightSide from '../CourseRightSide/CourseRightSide';
 const Courses = () => {
 
     return (
-        <div className='my-16 lg:px-16'>
-            <div className="flex">
+        <div className='my-16 px-16'>
+            <div className="lg:flex">
 
                 <div className="flex w-80">
                     <CourseLeftSide></CourseLeftSide>
