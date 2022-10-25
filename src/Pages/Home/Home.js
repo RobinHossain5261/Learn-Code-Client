@@ -15,11 +15,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='my-16 px-32 mx-auto'>
-                <h1 className='text-3xl text-info font-semibold mb-10 text-center'>Our Courses</h1>
 
-                <CourseRightSide></CourseRightSide>
-            </div>
         </div>
     );
 };
