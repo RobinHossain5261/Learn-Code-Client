@@ -16,7 +16,7 @@ const CourseLeftSide = () => {
             <h1 className='text-xl mb-3 font-semibold'>All Course List : {courses.length}</h1>
             {
                 courses.map(course => <p key={course.id}>
-                    <Link>{course.name}</Link>
+                    <Link to={`/courses/${course.id}`}>{course.name}</Link>
                 </p>)
             }
         </div>

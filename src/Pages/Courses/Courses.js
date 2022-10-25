@@ -9,7 +9,7 @@ const Courses = () => {
             <h1 className='text-3xl text-info my-3 text-center'>Our Courses</h1>
             <div className="flex ">
 
-                <div className="flex w-80 bg-red-300 ">
+                <div className="flex w-80 ">
                     <CourseLeftSide></CourseLeftSide>
                 </div>
 
