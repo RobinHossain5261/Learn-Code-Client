@@ -12,7 +12,7 @@ const CourseRightSide = () => {
         <div className="grid lg:grid-cols-3 gap-6">
 
             {
-                courses.map(course => <div>
+                courses.map(course => <div key={course.id}>
                     <div className="card w-64 bg-base-100 shadow-xl">
                         <figure><img className='h-40 p-3 w-full bg-gray-200' src={course.image} alt="" /></figure>
                         <div className="card-body">

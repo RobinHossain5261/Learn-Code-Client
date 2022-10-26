@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import logo from '../../../images/learn-logo.jpg';
 import { UserIcon } from '@heroicons/react/24/solid';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+
+
 
 const Header = () => {
-
-
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
@@ -34,7 +36,8 @@ const Header = () => {
                                 {
                                     user?.uid ?
                                         <>
-                                            <Link to='/profile'><img className='w-12 h-12 rounded-full	 mr-2' src={user?.photoURL ? user?.photoURL : <UserIcon />} alt="" /></Link>
+                                            <Link to='/profile'><img className='w-12 h-12 rounded-full	mr-2' src={user?.photoURL ? user?.photoURL : <UserIcon />} alt="" /></Link>
+
                                             <Link onClick={handleLogOut} className="btn btn-outline btn-info mr-2">Log Out</Link>
                                         </>
                                         :
@@ -59,6 +62,7 @@ const Header = () => {
                         <li><Link to='/blog'>Blog</Link></li>
                         <li><Link to='/contact'>Contact</Link></li>
 
+
                     </ul>
                 </div>
 
@@ -71,7 +75,9 @@ const Header = () => {
                     {
                         user?.uid ?
                             <>
-                                <Link to='/profile'><img className='w-12 h-12 rounded-full	 mr-2' src={user?.photoURL ? user?.photoURL : <UserIcon />} alt="" /></Link>
+                                <Tippy content={user?.displayName}>
+                                    <Link to='/profile'><img className='w-12 h-12 rounded-full	 mr-2' src={user?.photoURL ? user?.photoURL : <UserIcon />} alt="" /></Link>
+                                </Tippy>
                                 <Link onClick={handleLogOut} className="btn btn-outline btn-info mr-2">Log Out</Link>
                             </>
                             :
