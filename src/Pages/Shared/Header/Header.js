@@ -36,7 +36,9 @@ const Header = () => {
                                 {
                                     user?.uid ?
                                         <>
-                                            <Link to='/profile'><img className='w-12 h-12 rounded-full	mr-2' src={user?.photoURL ? user?.photoURL : <UserIcon />} alt="" /></Link>
+                                            <Tippy content={user?.displayName}>
+                                                <Link to='/profile'><img className='w-12 h-12 rounded-full	 mr-2' src={user?.photoURL ? user?.photoURL : <UserIcon />} alt="" /></Link>
+                                            </Tippy>
 
                                             <Link onClick={handleLogOut} className="btn btn-outline btn-info mr-2">Log Out</Link>
                                         </>
@@ -50,8 +52,10 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className='flex items-center	'>
+
                         <img className='w-16 h-16 rounded-full' src={logo} alt="" />
-                        <Link className="btn btn-ghost normal-case text-3xl ">Learn <span className='text-info'>-Code</span></Link>
+                        <Link to='/' className="btn btn-ghost normal-case text-3xl ">Learn <span className='text-info'>-Code</span></Link>
+
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">

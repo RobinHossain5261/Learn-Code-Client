@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
+
 const CourseDetails = () => {
     const course = useLoaderData();
     // console.log(course)
@@ -12,6 +13,7 @@ const CourseDetails = () => {
             <img className='w-96 h-96 mt-8' src={course.image} alt="" />
             <p className='mt-3'>{course.description}</p>
             <Link to='/checkout' className='btn  btn-info mt-3'>Get premium access</Link>
+
         </div>
     );
 };
